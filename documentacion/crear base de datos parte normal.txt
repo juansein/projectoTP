@@ -1,0 +1,65 @@
+CREATE DATABASE Sistema;
+
+USE Sistema;
+
+--Tabla de productos
+CREATE TABLE Productos (
+    ID_Producto INT PRIMARY KEY,
+    Nombre_Producto VARCHAR(50) NOT NULL,
+    Precio_Unitario DECIMAL(10,2) NOT NULL,
+    Stock_Actual INT NOT NULL
+);
+
+--Tabla de proveedores
+CREATE TABLE Proveedores (
+    ID_Proveedor INT PRIMARY KEY,
+    Nombre_Proveedor VARCHAR(50) NOT NULL,
+    Direccion VARCHAR(100) NOT NULL,
+    Telefono VARCHAR(15) NOT NULL
+);
+
+--Tabla de compras
+CREATE TABLE Compras (
+    ID_Compra INT PRIMARY KEY,
+    Fecha_Compra DATETIME NOT NULL,
+    ID_Proveedor INT NOT NULL,
+    FOREIGN KEY (ID_Proveedor) REFERENCES Proveedores(ID_Proveedor)
+);
+
+--Tabla de detalles de compra
+CREATE TABLE Detalles_Compra (
+    ID_Compra INT NOT NULL,
+    ID_Producto INT NOT NULL,
+    Cantidad INT NOT NULL,
+    Precio_Unitario DECIMAL(10,2) NOT NULL,
+    PRIMARY KEY (ID_Compra, ID_Producto),
+    FOREIGN KEY (ID_Compra) REFERENCES Compras(ID_Compra),
+    FOREIGN KEY (ID_Producto) REFERENCES Productos(ID_Producto)
+);
+
+--Tabla de clientes
+CREATE TABLE Clientes (
+    ID_Cliente INT PRIMARY KEY,
+    Nombre_Cliente VARCHAR(50) NOT NULL,
+    Direccion VARCHAR(100) NOT NULL,
+    Telefono VARCHAR(15) NOT NULL
+);
+
+--Tabla de ventas
+CREATE TABLE Ventas (
+    ID_Venta INT PRIMARY KEY,
+    Fecha_Venta DATETIME NOT NULL,
+    ID_Cliente INT NOT NULL,
+    FOREIGN KEY (ID_Cliente) REFERENCES Clientes(ID_Cliente)
+);
+
+--Tabla de detalles de venta
+CREATE TABLE Detalles_Venta (
+    ID_Venta INT NOT NULL,
+    ID_Producto INT NOT NULL,
+    Cantidad INT NOT NULL,
+    Precio_Unitario DECIMAL(10,2) NOT NULL,
+    PRIMARY KEY (ID_Venta, ID_Producto),
+    FOREIGN KEY (ID_Venta) REFERENCES Ventas(ID_Venta),
+    FOREIGN KEY (ID_Producto) REFERENCES Productos(ID_Producto)
+);

@@ -1,0 +1,31 @@
+USE Sistema;
+--Tabla de Roles
+CREATE TABLE Roles (
+    ID_Rol INT PRIMARY KEY,
+    Nombre_Rol VARCHAR(50)
+);
+--Tabla de Usuarios
+CREATE TABLE Usuarios (
+    ID_Usuario INT PRIMARY KEY,
+    Nombre_Usuario VARCHAR(50),
+    Username VARCHAR(20) UNIQUE,
+    Password VARCHAR(100),
+    Email VARCHAR(100) UNIQUE,
+    ID_Rol INT FOREIGN KEY REFERENCES Roles(ID_Rol)
+);
+
+
+
+--Insertar datos en la tabla Roles
+INSERT INTO Roles (ID_Rol, Nombre_Rol)
+VALUES (1, 'Gerente'),
+       (2, 'Administrador del sistema'),
+       (3, 'Administrativo'),
+       (4, 'Vendedor');
+
+--Insertar datos en la tabla Usuarios
+INSERT INTO Usuarios (ID_Usuario, Nombre_Usuario, Username, Password, Email, ID_Rol)
+VALUES (1, 'Juan Perez', 'juanperez', 'password1', 'juan.perez@example.com', 1),
+       (2, 'Maria Rodriguez', 'mariarodriguez', 'password2', 'maria.rodriguez@example.com', 2),
+       (3, 'Pedro Gomez', 'pedrogomez', 'password3', 'pedro.gomez@example.com', 3),
+       (4, 'Ana Lopez', 'analopez', 'password4', 'ana.lopez@example.com', 4);

@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace NegocioIndumentariaDeportiva.Models
+{
+    public class Cliente
+    {
+        private int iD_Cliente;
+
+        public int GetID_Cliente()
+        {
+            return iD_Cliente;
+        }
+
+        public void SetID_Cliente(int value)
+        {
+            iD_Cliente = value;
+        }
+
+        private string nombre_Cliente;
+
+        public string GetNombre_Cliente()
+        {
+            return nombre_Cliente;
+        }
+
+        public void SetNombre_Cliente(string value)
+        {
+            nombre_Cliente = value;
+        }
+
+        private string telefono_Cliente;
+
+        public string GetTelefono_Cliente()
+        {
+            return telefono_Cliente;
+        }
+
+        public void SetTelefono_Cliente(string value)
+        {
+            telefono_Cliente = value;
+        }
+    }
+
+}

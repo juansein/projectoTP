@@ -1,0 +1,11 @@
+﻿@model IEnumerable<NegocioIndumentariaDeportiva.Models.Cliente>
+
+<h2>Clientes</h2>
+@foreach (var cliente in Model)
+{
+    <tr>
+        <td>@cliente.Nombre</td>
+        <td>@cliente.Id</td>
+        <td>@cliente.Telefono</td>
+    </tr>
+}

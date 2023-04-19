@@ -1,0 +1,39 @@
+USE Sistema;
+
+--Insertar datos en la tabla Productos
+INSERT INTO Productos (ID_Producto, Nombre_Producto, Precio_Unitario, Stock_Actual)
+VALUES (1, 'Laptop', 1000.00, 10),
+       (2, 'Monitor', 300.00, 20),
+       (3, 'Mouse', 20.00, 50);
+
+--Insertar datos en la tabla Proveedores
+INSERT INTO Proveedores (ID_Proveedor, Nombre_Proveedor, Direccion, Telefono)
+VALUES (1, 'Proveedor A', 'Calle 1 #123', '555-1234'),
+       (2, 'Proveedor B', 'Calle 2 #456', '555-5678');
+
+--Insertar datos en la tabla Compras
+INSERT INTO Compras (ID_Compra, Fecha_Compra, ID_Proveedor)
+VALUES (1, '2023-04-15 09:00:00', 1),
+       (2, '2023-04-16 10:00:00', 2);
+
+--Insertar datos en la tabla Detalles_Compra
+INSERT INTO Detalles_Compra (ID_Compra, ID_Producto, Cantidad, Precio_Unitario)
+VALUES (1, 1, 5, 1000.00),
+       (1, 2, 10, 300.00),
+       (2, 3, 20, 20.00);
+
+--Insertar datos en la tabla Clientes
+INSERT INTO Clientes (ID_Cliente, Nombre_Cliente, Direccion, Telefono)
+VALUES (1, 'Cliente A', 'Calle 3 #789', '555-4321'),
+       (2, 'Cliente B', 'Calle 4 #012', '555-8765');
+
+--Insertar datos en la tabla Ventas
+INSERT INTO Ventas (ID_Venta, Fecha_Venta, ID_Cliente)
+VALUES (1, '2023-04-16 14:00:00', 1),
+       (2, '2023-04-17 15:00:00', 2);
+
+--Insertar datos en la tabla Detalles_Venta
+INSERT INTO Detalles_Venta (ID_Venta, ID_Producto, Cantidad, Precio_Unitario)
+VALUES (1, 1, 3, 1200.00),
+       (1, 2, 5, 350.00),
+       (2, 3, 10, 25.00);

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.SqlClient;
 
 namespace NegocioIndumentariaDeportiva.Controllers
 {
+
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -26,5 +28,7 @@ namespace NegocioIndumentariaDeportiva.Controllers
 
             return View();
         }
+
+
     }
 }

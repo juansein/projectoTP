@@ -1,0 +1,33 @@
+@model NegocioIndumentariaDeportiva.Models.Cliente
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View</h2>
+
+
+@model List<NegocioIndumentariaDeportiva.Models.Cliente>
+
+<h2>Lista de Clientes</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cliente in Model)
+        {
+            <tr>
+                <td>@cliente.GetID_Cliente()</td>
+                <td>@cliente.GetNombre_Cliente()</td>
+                <td>@cliente.GetTelefono_Cliente()</td>
+            </tr>
+        }
+    </tbody>
+</table>
